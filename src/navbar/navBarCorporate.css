@@ -44,7 +44,8 @@ p.text-promo{
  
 .theme-dark .nav-promo{ background-color: rgb(234, 234, 234); color: black;}
 .logo-title{ font-size: 1.1rem; }
-.theme-light .logo-title{ color: black;}
+.theme-light .logo-title{ color: black !important;}
+.theme-dark .logo-title{ color: white !important;}
  
 .logo-title::after {
     content: '';

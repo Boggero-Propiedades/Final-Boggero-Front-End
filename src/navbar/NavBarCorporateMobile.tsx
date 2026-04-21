@@ -27,9 +27,9 @@ const NavBarCorporateMobile = forwardRef(({ closeMenu, texts, language, theme, t
                 <a href="/" onClick={closeMenu}>
                     <span className="link-number">01</span> Inicio
                 </a>
-                <a href="/products" onClick={closeMenu}>
+                {/* <a href="/products" onClick={closeMenu}>
                     <span className="link-number">02</span> Abogados
-                </a>
+                </a> */}
 
                 <a href="/company" onClick={closeMenu}>
                     <span className="link-number">03</span> Compañía

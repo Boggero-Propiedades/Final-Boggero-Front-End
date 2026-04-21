@@ -54,14 +54,11 @@ const Footer = () => {
                         </li>
                         <li style={{ marginTop: "15px" }} className="footer-location">
                             <strong>OFICINA</strong><br />
-                            [Dirección]<br />
-                            [Localidad], Argentina
+                            Ramos Mejía - Centro<br />
+                            Buenos Aires, Argentina
                         </li>
                         <li className="footer-location">
-                            <strong>TELÉFONO:</strong> [Teléfono]
-                        </li>
-                        <li className="footer-location">
-                            <strong>WHATSAPP:</strong> [WhatsApp]
+                            <strong>WHATSAPP:</strong> +54 9 11-2742-2947
                         </li>
                     </ul>
                 </div>

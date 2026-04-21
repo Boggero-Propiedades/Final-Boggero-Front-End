@@ -93,7 +93,7 @@ const NavBarCorporate = () => {
                 {/* NAVEGACIÓN DESKTOP */}
                 <nav className="nav-desktop">
                     <ul>
-                        <li><a href="/products">Abogados</a></li>
+                        {/* <li><a href="/products">Abogados</a></li> */}
 
                         <li><a href="/company">Compañía</a></li>
                         <li><a href="/contact">Contacto</a></li>
