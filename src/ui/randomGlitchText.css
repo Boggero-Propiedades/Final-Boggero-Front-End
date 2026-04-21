@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+.glitch-word-container {
+  font-family: "Montserrat", 'JetBrains Mono', monospace;
+  font-weight: 800;
+  font-size: 20rem;
+  color: #fff;
+  display: flex;
+  overflow: hidden; /* Esto hace que la letra "desaparezca" al salir del límite */
+}
+
+.glitch-letter {
+  position: relative;
+  will-change: transform, opacity;
+}
+
+/* Color de acento para el efecto */
+.dark .glitch-letter { color: rgba(249, 253, 10, 0.848); }
+.light .glitch-letter { color: rgb(120, 245, 107); }
+
+@media (max-width: 768px){
+    .glitch-word-container{
+        font-size: 9rem;
+    }
+} 

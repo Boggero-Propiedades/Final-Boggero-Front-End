@@ -1,0 +1,360 @@
+body{
+    background-color: black;
+}
+
+.products-section{
+    height: 425vh;
+    padding-top: 2rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.dd-grid-overlay.dark{
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(#1f1f1f 1px, transparent 1px), 
+                      linear-gradient(90deg, #1f1f1f 1px, transparent 1px);
+    background-size: 40px 40px; opacity: 0.2; z-index: 2;
+}
+
+.dd-grid-overlay.light{
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(rgba(0, 98, 255, 0.1) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(0, 98, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px; opacity: 0.2; z-index: 2;
+}
+
+.h1-web{
+  text-align: center;
+  text-align-last: start;
+  position: relative;
+  z-index: 3;
+  font-size: 7rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  font-family: 'Montserrat', 'Inter', 'Poppins', sans-serif;
+}
+
+.p-web{
+  white-space: pre-line;
+  margin: 0;
+  margin-left: 3rem;
+  width: 50rem;
+  font-size: 25px;
+  font-weight: 300;
+  text-align: start;
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+.web-apps-section{
+    margin-left: 6rem;
+    margin-bottom: 4rem;
+    margin-top: 8vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 5;
+}
+
+.web-text-icons-section{
+    display: flex;
+    flex-direction: row;
+    gap: 15rem;
+}
+
+.h1-apps{
+    position: relative;
+    z-index: 3;
+    margin-top: 3rem;
+    text-align: end;
+    font-size: 7rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    font-family: 'Montserrat', 'Inter', 'Poppins', sans-serif;
+}
+
+.p-apps{
+  white-space: pre-line;
+  margin: 0;
+  margin-right: 3rem;
+  width: 50rem;
+  text-align: start;
+  font-size: 25px;
+  font-weight: 300;
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+.apps-section{
+    margin-right: 4rem;
+    margin-bottom: 8rem;
+    position: relative;
+    z-index: 5;
+}
+
+.app-text-icons-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 15rem;
+}
+
+.h1-custom{
+  position: relative;
+  z-index: 3;
+  margin-top: 5rem;
+  text-align: end;
+  font-size: 7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-family: 'Montserrat', 'Inter', 'Poppins', sans-serif;
+}
+
+.p-custom{
+  white-space: pre-line;
+  margin: 0;
+  margin-left: 10rem;
+  width: 50rem;
+  text-align: start;
+  font-size: 25px;
+  font-weight: 300;
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+
+.custom-section{
+    margin-right: 4rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 5;
+}
+
+.custom-icons-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 13rem;
+}
+
+.h1-ai{
+  position: relative;
+  z-index: 3;
+  margin-top: 3rem;
+  margin-right: 3rem;
+  width: auto; 
+  white-space: pre-line;
+  text-align: center;
+  text-align-last: end;
+  font-size: 6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', 'Inter', 'Poppins', sans-serif;
+}
+
+.p-ai{
+  white-space: pre-line;
+  margin: 0;
+  margin-top: 2rem;
+  margin-right: 3rem;
+  width: 45rem;
+  text-align: start;
+  font-size: 25px;
+  font-weight: 300;
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+.ai-section{
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 5;
+}
+
+.ai-icons-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 18rem;
+}
+
+.h1-autom{
+  position: relative;
+  z-index: 3;
+  margin-top: 3rem;
+  white-space: pre-line;
+  text-align: center;
+  text-align-last: end;
+  font-family: 'Montserrat', 'Inter', 'Poppins', sans-serif;
+  font-size: 7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.p-autom{
+  white-space: pre-line;
+  margin: 0;
+  margin-left: 10rem;
+  width: 50rem;
+  text-align: start;
+  text-align-last: start;
+  font-size: 25px;
+  font-weight: 300;
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+.automation-section{
+    display: flex;
+    flex-direction: column;
+    margin-right: 7rem;
+    position: relative;
+    z-index: 5;
+}
+
+.automation-icons-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 10rem;
+}
+
+@media (max-width: 1100px) {
+    /* Reducimos los gaps exagerados en tablets */
+    .web-text-icons-section,
+    .app-text-icons-section,
+    .custom-icons-section,
+    .ai-icons-section,
+    .automation-icons-section {
+        gap: 5rem;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .h1-web{
+        text-align: start;
+        margin-left: 1rem;
+        margin-top: 10rem;
+        font-size: 2.2rem;
+    }
+
+    .p-web{
+        width: 90%;
+        display: block;
+        overflow-wrap: break-word; 
+        word-break: break-word;
+        font-size: 1rem;
+    }
+
+    .h1-apps{
+        width: 100%;
+        text-align: start;
+        font-size: 2.2rem;
+        margin-left: -3rem;
+    }
+
+    .p-apps{
+        width: 90%;
+        display: block;
+        overflow-wrap: break-word; 
+        word-break: break-word;
+        font-size: 1rem;
+        margin-right: 5rem;
+    }
+
+    .products-section {
+        height: auto; 
+        padding: 4rem 1.5rem;
+    }
+
+    div.custom-icons-section{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .h1-custom{
+        width: 100%;
+        margin-left: 6rem;
+        text-align: start;
+        font-size: 2.2rem;
+    }
+
+    .p-custom{
+        width: 90%;
+        display: block;
+        overflow-wrap: break-word; 
+        word-break: break-word;
+        font-size: 1rem;
+        margin-left: 13rem;
+    }
+
+    .h1-ai{
+        width: 100%;
+        font-size: 2rem;
+        text-align: start;
+    }    
+
+    .p-ai{
+        font-size: 1rem;
+        width: 90%;
+        display: block;
+        overflow-wrap: break-word; 
+        word-break: break-word;
+    }
+
+    div.automation-icons-section{
+        display: flex;
+        flex-direction: column-reverse
+    }
+
+    .h1-autom{
+        width: 100%;
+        text-align: end;
+        font-size: 2rem;
+    }
+
+    .p-autom{
+        font-size: 1rem;
+        width: 90%;
+        margin-right: 3rem;
+        display: block;
+        overflow-wrap: break-word; 
+        word-break: break-word;
+    }
+    
+    .web-apps-section,
+    .apps-section,
+    .custom-section,
+    .ai-section,
+    .automation-section {
+        margin: 0 0 4rem 0 !important;
+        align-items: center;
+        text-align: center;
+    }
+
+   
+    .web-text-icons-section,
+    .app-text-icons-section,
+    .custom-icons-section,
+    .ai-icons-section,
+    .automation-icons-section {
+        flex-direction: column; 
+        gap: 2rem; 
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-section {
+        padding-top: 2rem;
+    }
+
+    .web-apps-section h2, 
+    .apps-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .ai-section, .automation-section {
+        margin-bottom: 3rem !important;
+    }
+}

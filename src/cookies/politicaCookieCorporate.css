@@ -1,0 +1,130 @@
+/* --- CONTENEDOR PRINCIPAL --- */
+.cookies-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 8rem; /* Espacio para el Navbar fijo */
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.5s ease;
+}
+
+.cookies-container {
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    width: 90%;
+    /* Animación de entrada sutil: Elevación y Opacidad */
+    animation: corporateFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- TÍTULO PRINCIPAL --- */
+h1.cookies-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+/* --- CUERPO DE TEXTO --- */
+.cookies-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+/* --- SUBTÍTULOS (H3) --- */
+h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 3.5rem;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* El detalle de la línea vertical corporativa */
+h3::before {
+    content: "";
+    width: 3px;
+    height: 24px;
+    background-color: #0062FF;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+/* --- LISTA DE COOKIES --- */
+.cookies-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.cookies-list li {
+    padding: 1.25rem 1.5rem;
+    border-radius: 4px; /* Menos redondeado = más serio */
+    border: 1px solid transparent;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* --- THEME DARK --- */
+.dark h3::before{ background-color: #0062FF; }
+.dark.cookies-page-wrapper { background-color: #0f172a; }
+.dark h1.cookies-title { color: #ffffff; }
+.dark .cookies-text { color: #94a3b8; } /* Slate 400 */
+.dark h3 { color: #f1f5f9; }
+.dark .cookies-list li {
+    background: #1e293b;
+    border-color: #334155;
+    color: #cbd5e1;
+}
+.dark .cookies-list li:hover {
+    border-color: #0062FF;
+    background: #1e293b;
+    transform: translateY(-2px);
+}
+
+/* --- THEME LIGHT --- */
+.light h3::before{ background-color: #41659e; }
+.light.cookies-page-wrapper { background-color: #f8fafc; }
+.light h1.cookies-title { color: #1d365e;; }
+.light .cookies-text { color: #475569; } /* Slate 600 */
+.light h3 { color: #1e293b; }
+.light .cookies-list li {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    color: #1e293b;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.light .cookies-list li:hover {
+    border-color: #0062FF;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+/* --- ANIMACIÓN --- */
+@keyframes corporateFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .cookies-page-wrapper { padding-top: 6rem; }
+    .cookies-title { font-size: 2.2rem; }
+    .cookies-container { width: 85%; }
+    h3 { font-size: 1.2rem; }
+}

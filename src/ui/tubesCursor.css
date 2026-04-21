@@ -1,0 +1,16 @@
+#tubes-cursor-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;  /* Ocupa el ancho de la ventana */
+    height: 100vh; /* Ocupa el alto de la ventana */
+    pointer-events: none; /* Deja pasar los clics a las cards */
+    z-index: 9999; /* Asegúrate de que esté por encima de casi todo, o donde prefieras */
+    mix-blend-mode: screen; 
+    display: block;
+    background: transparent;
+    
+    /* Evita que el navegador intente estirarlo */
+    overflow: hidden;
+    contain: strict; 
+}

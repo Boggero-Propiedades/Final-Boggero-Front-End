@@ -1,0 +1,601 @@
+:root {
+    --violet-main: #8e2de2;
+    --violet-soft: #a855f7;
+    --violet-glow: rgba(142, 45, 226, 0.7);
+    --bg-dark: #0b0b14;
+    --bg-soft: #141428;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.dd-grid-overlay.dark{
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(#1f1f1f 1px, transparent 1px), 
+                      linear-gradient(90deg, #1f1f1f 1px, transparent 1px);
+    background-size: 40px 40px; opacity: 0.2; z-index: 1;
+}
+
+.dd-grid-overlay.light{
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(rgba(0, 98, 255, 0.1) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(0, 98, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px; opacity: 0.2; z-index: 1;
+}
+
+.dev-sorteo-container {
+    margin-top: 4rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13rem;
+    padding: 24px;
+    font-family: "Montserrat", "Inter", "Poppins", sans-serif;
+    color: white;
+}
+
+/* ============================== */
+/* 🧊 Glass Card Base              */
+/* ============================== */
+
+.dev-card,
+.loading-stage,
+.winner-card {
+
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 480px;
+    
+    border-radius: 18px;
+    padding: 28px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    box-shadow:
+        0 0 20px rgba(142, 45, 226, 0.25),
+        inset 0 0 25px rgba(255,255,255,0.06);
+}
+
+/* ============================== */
+/* 🖥️ Terminal Header             */
+/* ============================== */
+
+.dev-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-title {
+    margin-left: auto;
+    font-size: 13px;
+    opacity: 0.7;
+    font-family: "Inter", monospace;
+}
+
+/* ============================== */
+/* 🧠 Titles                      */
+/* ============================== */
+
+h2.title-raffle{
+    margin: 0;
+}
+
+.dev-card h2 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    background: linear-gradient(
+        90deg,
+        var(--violet-main),
+        var(--violet-soft)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 15px;
+    opacity: 0.85;
+    margin-bottom: 26px;
+    line-height: 1.5;
+}
+
+/* ============================== */
+/* 📝 Form                        */
+/* ============================== */
+
+.dev-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.dev-form input,
+.dev-form textarea {
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 14px 16px;
+    color: white;
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.dev-form textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+.dev-form input:focus,
+.dev-form textarea:focus {
+    border-color: var(--violet-main);
+    box-shadow: 0 0 0 2px rgba(142,45,226,0.25);
+}
+
+/* ============================== */
+/* 🔥 Glow Button                 */
+/* ============================== */
+
+.btn-glow {
+    margin-top: 10px;
+    padding: 16px;
+    background: linear-gradient(135deg, #8e2de2, #4a00e0);
+    border: none;
+    border-radius: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+   
+    box-shadow:
+        0 0 25px var(--violet-glow),
+        inset 0 0 15px rgba(255,255,255,0.25);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+.btn-glow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.btn-glow:hover::after {
+    transform: translateX(100%);
+}
+
+.btn-glow:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 0 40px rgba(142,45,226,0.9);
+}
+
+/* ============================== */
+/* ⏳ Loading Stage               */
+/* ============================== */
+
+.loading-stage {
+    text-align: center;
+}
+
+.spinner-dev {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.15);
+    border-top-color: var(--violet-main);
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.typing-text {
+    font-family: "Inter", monospace;
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: #e9d5ff;
+}
+
+.console-log {
+    background: rgba(0,0,0,0.4);
+    border-radius: 12px;
+    padding: 14px;
+    color: #27c93f;
+    font-family: "Inter", monospace;
+    font-size: 15px;
+    text-align: left;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* ============================== */
+/* 🏆 Winner Card                 */
+/* ============================== */
+
+.winner-card {
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 42px;
+    filter: drop-shadow(0 0 20px var(--violet-glow));
+    margin-bottom: 10px;
+}
+
+.winner-card h1 {
+    color: #a855f7;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.ticket-summary {
+    margin: 18px 0;
+    padding: 16px;
+    border-radius: 14px;
+    background: rgba(0,0,0,0.35);
+    font-family: "Inter", monospace;
+    font-size: 16px;
+}
+
+.btn-back {
+    margin-top: 12px;
+    background: transparent;
+    border: 1px solid var(--violet-main);
+    color: white;
+    padding: 12px 26px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background: var(--violet-main);
+    box-shadow: 0 0 20px var(--violet-glow);
+}
+
+/* El nuevo checkbox personalizado */
+.checkmark {
+    position: relative;
+    top: 2px;
+    height: 18px;
+    width: 18px;
+    background-color: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    flex-shrink: 0; /* Evita que se encoja si el texto es largo */
+}
+
+/* Al pasar el mouse */
+.checkbox-wrapper:hover input ~ .checkmark {
+    border-color: #6366f1;
+}
+
+/* Cuando está marcado */
+.checkbox-wrapper input:checked ~ .checkmark {
+    background-color: #6366f1;
+    border-color: #6366f1;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+/* El check (la forma de V) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Mostrar el check cuando está marcado */
+.checkbox-wrapper input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* CHECKBOX */
+.dev-checkbox-group {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.4;
+    user-select: none;
+}
+
+/* Escondemos el checkbox original */
+.checkbox-wrapper input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* SHAKE */
+.checkbox-warning {
+    color: #ef4444; 
+    font-size: 15px;
+    margin-top: 6px;
+}
+
+.animate-shake {
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+}
+
+.animate-shake .checkmark {
+    border-color: #ef4444 !important; 
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* ============================== */
+/* 🟦 LIGHT THEME OVERRIDES       */
+/* ============================== */
+
+.theme-light.dev-sorteo-container {
+    color: #1e293b; /* Texto principal oscuro */
+}
+
+/* Tarjeta Glass en Light Mode */
+.theme-light .dev-card,
+.theme-light .loading-stage,
+.theme-light .winner-card {
+    background: rgba(255, 255, 255, 0.47);
+    border: 1px solid rgba(0, 98, 255, 0.15);
+    box-shadow: 
+        0 20px 40px rgba(0, 98, 255, 0.08),
+        inset 0 0 0px rgba(255,255,255,1);
+    backdrop-filter: blur(20px);
+}
+
+/* Títulos con gradiente azul */
+.theme-light .dev-card h2, 
+.theme-light .winner-card h1 {
+    background: linear-gradient(90deg, #0052D1, #0076FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.theme-light .subtitle, 
+.theme-light .terminal-title {
+    color: #475569;
+    opacity: 1;
+}
+
+/* Inputs y Textarea */
+.theme-light .dev-form input,
+.theme-light .dev-form textarea {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+}
+
+.theme-light .dev-form input::placeholder,
+.theme-light .dev-form textarea::placeholder {
+    color: #94a3b8;
+}
+
+.theme-light .dev-form input:focus,
+.theme-light .dev-form textarea:focus {
+    border-color: #0062FF;
+    box-shadow: 0 0 0 3px rgba(0, 98, 255, 0.1);
+}
+
+/* Botón con gradiente azul */
+.theme-light .btn-glow {
+    background: linear-gradient(135deg, #0062FF, #0041cb);
+    box-shadow: 0 10px 20px rgba(0, 98, 255, 0.2);
+}
+
+.theme-light .btn-glow:hover {
+    box-shadow: 0 15px 30px rgba(0, 98, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Checkbox y labels */
+.theme-light .label-text {
+    color: #475569;
+}
+
+.theme-light .label-text a {
+    color: #0062FF;
+}
+
+.theme-light .checkmark {
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+}
+
+/* Loading stage y Consola */
+.theme-light .spinner-dev {
+    border: 4px solid rgba(0, 98, 255, 0.1);
+    border-top-color: #0062FF;
+}
+
+.theme-light .typing-text {
+    color: #0052D1;
+}
+
+.theme-light .console-log {
+    background: #0f172a; /* Mantenemos la consola oscura para estilo dev */
+    color: #38bdf8;
+}
+
+.theme-light .ticket-summary {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+}
+
+.theme-light span{
+    color: #0062FF
+}
+
+.theme-light small{
+    color: #0062FF
+}
+
+/* --- CHECKBOX CUSTOM (BLUE TECH) --- */
+.theme-light .checkmark {
+    background-color: #E2E8F0;
+    border: 2px solid #CBD5E0;
+}
+
+.theme-light .checkbox-wrapper:hover input ~ .checkmark {
+    border-color: #0062FF;
+}
+
+/* Estado Marcado - Azul DeepDev */
+.checkbox-wrapper input:checked ~ .checkmark {
+    background-color: #0062FF;
+    border-color: #0062FF;
+    box-shadow: 0 0 10px rgba(0, 98, 255, 0.4);
+}
+
+.theme-light .label-text {
+    color: #334E68;
+}
+
+.theme-light .label-text a {
+    color: #0062FF;
+}
+
+.theme-light .label-text a:hover {
+    color: #00D1FF;
+}
+
+@media (max-width: 1024px) {
+    .dev-sorteo-container {
+        gap: 4rem; /* Reducimos el espacio abismal de 13rem en tablets */
+        flex-direction: column; /* Apilamos la info del sorteo y la card */
+        padding: 40px 20px;
+        height: auto;
+        min-height: 100vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .dev-sorteo-container {
+        margin-top: 2rem;
+        gap: 2rem;
+    }
+
+    .dev-card,
+    .loading-stage,
+    .winner-card {
+        padding: 20px; /* Reducimos el padding interno para ganar espacio */
+        border-radius: 14px;
+        max-width: 100%; /* La tarjeta ahora fluye con el ancho del móvil */
+    }
+
+    .dev-card h2 {
+        font-size: 22px; /* Título un poco más pequeño */
+    }
+
+    .subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /* Ajuste para que los inputs no se sientan tan apretados */
+    .dev-form input,
+    .dev-form textarea {
+        padding: 12px;
+        font-size: 16px; /* Evita el zoom automático en iOS */
+    }
+}
+
+@media (max-width: 480px) {
+    .dev-sorteo-container {
+        padding: 15px;
+    }
+
+    .dev-header {
+        margin-bottom: 15px;
+    }
+
+    .terminal-title {
+        display: none; /* Ocultamos el título de la terminal en móviles muy pequeños para ahorrar espacio */
+    }
+
+    .btn-glow {
+        padding: 14px;
+        font-size: 0.9rem;
+    }
+
+    .console-log {
+        font-size: 13px; /* Consola un poco más compacta */
+        padding: 10px;
+    }
+
+    .success-icon {
+        font-size: 32px;
+    }
+
+    .winner-card h1 {
+        font-size: 22px;
+    }
+}
+
+/* Soporte para móviles en horizontal */
+@media (max-height: 500px) and (orientation: landscape) {
+    .dev-sorteo-container {
+        margin-top: 1rem;
+        height: auto;
+    }
+    
+    .dev-card {
+        margin: 20px 0;
+    }
+}

@@ -1,0 +1,20 @@
+.img-floating{
+  width: 130px;
+  filter: grayscale(0%) brightness(1.15) drop-shadow(0 0 20px rgba(139, 92, 246, 0.1));
+  pointer-events: none;
+}
+
+@media (max-width: 768px){
+    .web-text-icons-section{
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+
+    .img-floating{
+        background-color: transparent;
+        transform: translate(0, 0)!important;
+        width: 60px;
+        margin: 0 1rem;
+    }
+}
+

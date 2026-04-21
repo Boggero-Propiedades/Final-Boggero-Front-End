@@ -1,0 +1,172 @@
+.terminos-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7rem;
+    min-height: 100vh;
+}
+
+.terminos-container {
+    max-width: 900px;
+    padding: 4rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.terminos-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    letter-spacing: -2px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.terminos-intro {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 700;
+}
+
+h3::before {
+    content: "";
+    width: 25px;
+    height: 3px;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.terminos-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.terminos-footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- THEME DARK (Deep Purple) --- */
+.dark .terminos-container {
+    color: #ffffff;
+}
+
+.dark .terminos-title {
+    background: linear-gradient(to right, #fff, #8e2de2);
+    -webkit-background-clip: text;
+}
+
+.dark h3 {
+    color: #9f6bff;
+}
+
+.dark h3::before {
+    background: #8e2de2;
+}
+
+.dark .terminos-text {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.dark .terminos-footer {
+    background: rgba(142, 45, 226, 0.05);
+    border: 1px dashed rgba(142, 45, 226, 0.3);
+    color: #9f6bff;
+}
+
+/* --- THEME LIGHT (Electric Blue) --- */
+.terminos-page-wrapper.light {
+    background-color: #F0F4F8;
+}
+
+.light .terminos-container {
+    color: #1a1a1a;
+}
+
+.light .terminos-title {
+    background: linear-gradient(to right, #0044ff, #00c6ff);
+    -webkit-background-clip: text;
+}
+
+.light h3 {
+    color: #1b63fd;
+}
+
+.light h3::before {
+    background: #0055ff;
+}
+
+.light .terminos-text {
+    color: #444;
+}
+
+.light .terminos-footer {
+    background: rgba(0, 85, 255, 0.05);
+    border: 1px dashed rgba(0, 85, 255, 0.3);
+    color: #0055ff;
+}
+
+.terminos-text strong {
+    font-weight: 700;
+}
+
+/* Opcional: Una clase para párrafos de advertencia legal */
+.dark .terminos-text strong {
+    color: #9f6bff;
+}
+
+.light .terminos-text strong {
+    color: #1b63fd;
+}
+
+/* Mejora de espaciado en secciones largas */
+.terminos-content-body {
+    text-align: justify;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .terminos-container {
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem;
+    }
+
+    .terminos-title {
+        font-size: 2.2rem;
+        letter-spacing: -1px;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        margin-top: 2rem;
+    }
+
+    .terminos-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .terminos-title {
+        font-size: 1.8rem;
+    }
+    
+    .terminos-container {
+        padding: 1.5rem 1rem;
+    }
+}

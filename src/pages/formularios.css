@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap');
+
+/* RESET BOX-SIZING */
+.corp-full-layout, 
+.corp-full-layout *, 
+.corp-full-layout *::before, 
+.corp-full-layout *::after {
+    box-sizing: border-box !important;
+}
+
+.corp-full-layout {
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7rem;
+}
+
+/* Manejo de Temas */
+.corp-full-layout.light {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --tab-opacity: 0.5;
+}
+
+.corp-full-layout.dark {
+    background-color: #0f172a;
+    color: #f5f5f5;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --tab-opacity: 0.4;
+}
+
+/* Header y Navegación */
+.raw-header {
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: inherit;
+}
+
+.raw-nav {
+    display: flex;
+    justify-content: center;
+    padding: 0 5%;
+    gap: 40px;
+    /* Eliminamos el scroll horizontal para evitar conflictos */
+    overflow: hidden; 
+}
+
+.raw-tab {
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 25px 0;
+    cursor: pointer;
+    opacity: var(--tab-opacity);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.raw-tab.active {
+    opacity: 1;
+    color: #3b82f6;
+}
+
+.raw-tab.active::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #3b82f6;
+}
+
+/* Área de contenido */
+.raw-content {
+    width: 100%;
+    padding: 40px 5%;
+}
+
+.raw-component-wrapper {
+    width: 100%;
+}
+
+/* Limpieza de componentes hijos */
+.raw-component-wrapper > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Inputs Corporativos */
+.raw-component-wrapper input,
+.raw-component-wrapper select,
+.raw-component-wrapper textarea {
+    font-family: 'Montserrat', sans-serif !important;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    color: inherit;
+    font-size: 1rem;
+    border-radius: 0;
+}
+
+.raw-component-wrapper input:focus {
+    outline: none;
+    border-bottom-color: #3b82f6;
+}
+
+/* RESPONSIVE (Móvil) */
+@media (max-width: 768px) {
+    .corp-full-layout {
+        margin-top: 7rem;
+        padding: 0; /* Quitamos padding externo para controlar el interno */
+    }
+
+    .raw-nav {
+        flex-direction: column; /* Apilado vertical */
+        align-items: center;    /* Centrado */
+        gap: 0;                 /* El espacio lo da el padding de los botones */
+        padding: 10px 0;
+    }
+
+    .raw-tab {
+        width: 100%;
+        text-align: center;
+        font-size: 0.7rem;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.05);
+    }
+
+    .raw-tab.active::after {
+        width: 40px; /* Línea más corta y centrada para diseño vertical */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .raw-content {
+        padding: 30px 25px; /* Margen de seguridad lateral en mobile */
+    }
+
+    .raw-component-wrapper input {
+        font-size: 16px !important;
+    }
+}
