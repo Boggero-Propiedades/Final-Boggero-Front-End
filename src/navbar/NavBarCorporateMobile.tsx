@@ -27,9 +27,9 @@ const NavBarCorporateMobile = forwardRef(({ closeMenu, texts, language, theme, t
                 <a href="/" onClick={closeMenu}>
                     <span className="link-number">01</span> Inicio
                 </a>
-                {/* <a href="/products" onClick={closeMenu}>
-                    <span className="link-number">02</span> Abogados
-                </a> */}
+                <a href="/houses" onClick={closeMenu}>
+                    <span className="link-number">02</span> Propiedades
+                </a>
 
                 <a href="/company" onClick={closeMenu}>
                     <span className="link-number">03</span> Compañía
@@ -43,9 +43,9 @@ const NavBarCorporateMobile = forwardRef(({ closeMenu, texts, language, theme, t
                     <span className="link-number">05</span> Método
                 </a>
                 
-                {user && (
-                    <a href="/dashboard" onClick={closeMenu} className="mobile-dash-link">
-                        Dashboard Administrativo
+                {user && user.admin === true && (
+                    <a href="/admin" onClick={closeMenu} className="mobile-dash-link">
+                        <span className="link-number">06</span> Administrador
                     </a>
                 )}
             </nav>

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import logo from "../../public/logos/DeepDevLogo.jpg"
 import "./loginCorporate.css";
-import { UseLanguage }   from "../contexts/LanguageContext";
+import { UseLanguage } from "../contexts/LanguageContext";
 import { UseTheme } from "../contexts/ThemeContext";
 import eyeClose from "/logos/eye-close.svg"
 import eyeOpen from "/logos/eye-open.svg"
@@ -9,14 +8,13 @@ import { UseSession } from "../contexts/SessionContext";
 import Loader from "../loader/Loader";
 
 interface LoginProps {
-  openRegister: () => void;
   closeLogin: () => void
 }
 
-const LoginCorporate = ({ closeLogin, openRegister }: LoginProps) => {
+const LoginCorporate = ({ closeLogin }: LoginProps) => {
     const { language, texts } = UseLanguage()  
     const { theme } = UseTheme()
-    const { handleLogin, loading, error, handleResetPassword } = UseSession()
+    const { handleLogin, loading, error } = UseSession()
     const loginRef = useRef<HTMLDivElement>(null);
 
     const [ exit, setExit ] = useState(false);
@@ -49,7 +47,7 @@ const LoginCorporate = ({ closeLogin, openRegister }: LoginProps) => {
         }
     }
 
-    if(loading) return <Loader />
+    if (loading) return <Loader />
 
     return (
         <div className={`log-corp-overlay ${exit ? "log-corp-fade-out" : ""}`}>
@@ -57,16 +55,31 @@ const LoginCorporate = ({ closeLogin, openRegister }: LoginProps) => {
                 ref={loginRef} 
                 className={`log-corp-panel ${theme === 'light' ? 'light' : 'dark'} ${exit ? "log-corp-exit" : ""}`}
             >
-                {/* Cabecera estilo Navbar */}
+                {/* ── HEADER ── */}
                 <div className="log-corp-header">
-                    <span className="log-corp-panel-title">{texts[language].login.title}</span>
+                    <span className="log-corp-panel-title">Checking Auth Conection...</span>
                     <button className="log-corp-close-btn" onClick={handleClose}>✕</button>
                 </div>
 
+                {/* ── CONTENT ── */}
                 <div className="log-corp-content">
-                    <img className="log-corp-logo" src={logo} alt="logo" />
 
-                    <h2 className="log-title">Bienvenido a Boggero Propiedades</h2>
+                    {/* Badge de acceso restringido */}
+                    <div className="log-corp-badge">
+                        <span className="log-corp-badge-dot" />
+                        ACCESO RESTRINGIDO
+                    </div>
+
+                    <h2 className="log-title">Panel Administrativo</h2>
+
+                    <p className="log-corp-desc">
+                        Este acceso está reservado exclusivamente para administradores 
+                        habilitados de Boggero Propiedades. Las credenciales están 
+                        cifradas y protegidas mediante autenticación segura.
+                        Si no sos parte del equipo, por favor cerrá esta ventana.
+                    </p>
+
+                    <div className="log-corp-divider" />
                     
                     <form className="log-corp-form" onSubmit={loginSubmit}>
                         
@@ -78,7 +91,7 @@ const LoginCorporate = ({ closeLogin, openRegister }: LoginProps) => {
                                 <input 
                                     id="email" 
                                     type="email" 
-                                    placeholder="ejemplo@empresa.com"
+                                    placeholder="ejemplo@gmail.com.ar"
                                     value={email} 
                                     onChange={(e) => setEmail(e.target.value)} 
                                     required 
@@ -107,26 +120,25 @@ const LoginCorporate = ({ closeLogin, openRegister }: LoginProps) => {
                                         onClick={() => setVisiblePassword(!visiblePassword)}
                                     />
                                 </div>
-                                <span className="log-corp-forgot" onClick={() => handleResetPassword(email)}>
-                                    {texts[language].login.forgot}
-                                </span>
                             </div>
                         </div>
 
-                        {error && <p className="log-corp-error-msg">{error}</p>}
+                        {error && (
+                            <p className="log-corp-error-msg">{error}</p>
+                        )}
 
                         <button type="submit" className="log-corp-submit-btn">
                             {texts[language].login.button}
                         </button>
-                    </form>
-                </div>
 
-                {/* Footer estilo extra-actions */}
-                <div className="log-corp-footer">
-                    <div className="log-corp-footer-label">{texts[language].login.register.before}</div>
-                    <button className="log-corp-auth-link" onClick={openRegister}>
-                        {texts[language].login.register.after}
-                    </button>
+                    </form>
+
+                    {/* Info de seguridad */}
+                    <div className="log-corp-security-note">
+                        <span className="log-corp-security-icon">🔒 </span>
+                        <span className="log-corp-security">Conexión cifrada · Acceso auditado 🔒</span>
+                    </div>
+
                 </div>
             </div>
         </div>

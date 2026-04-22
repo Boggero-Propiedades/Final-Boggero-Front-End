@@ -7,12 +7,9 @@ import { UseLanguage } from "../contexts/LanguageContext";
 import { UseTheme } from "../contexts/ThemeContext";
 import { UseSession } from "../contexts/SessionContext";
 import NavBarCorporateMobile from "./NavBarCorporateMobile";
-import RegisterCorporate from "./RegisterCorporate";
 import LiveTypingText from "../ui/LiveTypingText";
 
 const NavBarCorporate = () => {
-   // --- LÓGICA ORIGINAL PRESERVADA ---
-    const [ openRegister, setOpenRegister ] = useState<boolean>(false)
     const [ loginOpen, setLoginOpen ] = useState(false);    
     const [ showPromo, setShowPromo ] = useState(true);
     const [ menuOpen, setMenuOpen ] = useState(false);
@@ -23,16 +20,6 @@ const NavBarCorporate = () => {
 
     const { language, handleLanguage, texts } = UseLanguage()
     const { theme, handleTheme } = UseTheme()
-
-    const openRegisterFromLogin = () => {
-        setLoginOpen(false);
-        setOpenRegister(true);
-    };
-
-    const openLoginFromRegister = () => {
-        setLoginOpen(true);
-        setOpenRegister(false);
-    };
 
      // --- LÓGICA ROUND MORPH PROPIA DE ESCRITORIO ---
     const toggleThemeWithAnimation = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -93,12 +80,11 @@ const NavBarCorporate = () => {
                 {/* NAVEGACIÓN DESKTOP */}
                 <nav className="nav-desktop">
                     <ul>
-                        {/* <li><a href="/products">Abogados</a></li> */}
-
+                        <li><a href="/houses">Propiedades</a></li>
                         <li><a href="/company">Compañía</a></li>
                         <li><a href="/contact">Contacto</a></li>
                         <li><a href="/method">Método</a></li>
-                        {user && <li><a href="/dashboard" className="dashboard-link">Dashboard</a></li>}
+                        {user && user.admin === true && <li><a href="/dashboard" className="dashboard-link">Administrador</a></li>}
                     </ul>   
                 </nav>
 
@@ -107,22 +93,11 @@ const NavBarCorporate = () => {
                         <button className="nav-buttons theme-btn" onClick={toggleThemeWithAnimation}>
                             <img src={theme === "dark" ? sun : moon} alt="theme-icon" width={18} />
                         </button>
-                            
-                        {/* <div className="select-wrapper">
-                            <select className="nav-buttons lan-select" value={language} onChange={(e) => handleLanguage(e.target.value)}>
-                                <option value="es">ES</option>
-                                <option value="en">EN</option>
-                                <option value="it">IT</option>
-                                <option value="de">DE</option>
-                                <option value="fr">FR</option>
-                                <option value="ru">RU</option>
-                            </select>
-                        </div> */}
 
                         {user ? 
                             <button onClick={() => handleLogout()} className="nav-buttons logout-btn">Cerrar Sesión</button>
                             :
-                            <button onClick={() => setLoginOpen(true)} className="nav-buttons login-btn">{texts[language].nav.login}</button>
+                            <button onClick={() => setLoginOpen(true)} className="nav-buttons login-btn">Administrador</button>
                         }
                     </div>
 
@@ -150,8 +125,7 @@ const NavBarCorporate = () => {
             )}
         </section>
 
-        { loginOpen && <LoginCorporate openRegister={openRegisterFromLogin} closeLogin={() => setLoginOpen(false)} /> }
-        { openRegister && <RegisterCorporate openLogin={openLoginFromRegister} closeRegister={() => setOpenRegister(false)} /> }   
+        { loginOpen && <LoginCorporate closeLogin={() => setLoginOpen(false)} /> }
         </>
     );
 }
