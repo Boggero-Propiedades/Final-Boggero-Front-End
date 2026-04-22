@@ -14,17 +14,25 @@
 .home-root.light { background: #fdf8f8;     color: #141820; }
  
 /* ── LABEL REUTILIZABLE ─────────────────────────────────── */
-span.home-label {
+.light span.home-label {
     display: block;
     font-size: 16px;
     font-weight: 900;
     letter-spacing: 5px;
     text-transform: uppercase;
-    color: black;
+    color: rgb(10, 9, 9);
     margin-bottom: 1.5rem;
 }
  
-.home-label--dark { color: #fff; }
+.dark span.home-label { 
+    display: block;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #f1dede;
+    margin-bottom: 1.5rem; 
+}
  
 /* ── OUTLINE TITLE ──────────────────────────────────────── */
 .home-outline {
@@ -500,9 +508,11 @@ h2.home-cta-title {
     font-weight: 600;
     line-height: 0.92;
     letter-spacing: -3px;
-    color: #fff;
+    color: #141313;
     margin: 1.5rem 0 1.5rem;
 }
+
+.dark .home-cta-title{ color: #c9637a; }
  
 .home-cta-sub {
     font-size: 12px;

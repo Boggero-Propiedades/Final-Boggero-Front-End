@@ -84,7 +84,7 @@ const NavBarCorporate = () => {
                         <li><a href="/company">Compañía</a></li>
                         <li><a href="/contact">Contacto</a></li>
                         <li><a href="/method">Método</a></li>
-                        {user && user.admin === true && <li><a href="/dashboard" className="dashboard-link">Administrador</a></li>}
+                        {user && user.admin === true && <li><a href="/admin" className="dashboard-link">Administrador</a></li>}
                     </ul>   
                 </nav>
 

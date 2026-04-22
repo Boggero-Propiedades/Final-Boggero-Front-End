@@ -14,6 +14,7 @@ import AdminDashboard from "../pages/AdminDashboard";
 /* import Dashboard from "../pages/Dashboard"; */
 import MethodCorporate from "../pages/MethodCorporate";
 import HousesView from "../pages/HousesView";
+import HouseIndividual from "../pages/HouseIndividual";
 
 const AppRouter = () => {
     return (
@@ -24,6 +25,7 @@ const AppRouter = () => {
                 <Routes>
                     <Route path="/" element={<HomeCorporate />} />
                     <Route path="/houses" element={<HousesView />} />
+                    <Route path="/houses/:id" element={<HouseIndividual />} />
                     <Route path="/company" element={<CompanyInfoCorporate />} />
                     <Route path="/contact" element={<ContactCorporate />} />
                     <Route path="/method" element={<MethodCorporate />} />

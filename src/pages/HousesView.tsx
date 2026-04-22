@@ -245,7 +245,7 @@ const HousesView = () => {
 
                                 <div className="hv-card-footer">
                                     <span className="hv-card-taxes">Expensas: {house.taxes}</span>
-                                    <a href={`/propiedades/${house._id}`} className="hv-card-cta">
+                                    <a href={`/houses/${house._id}`} className="hv-card-cta">
                                         Ver detalle →
                                     </a>
                                 </div>
