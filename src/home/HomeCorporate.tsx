@@ -333,7 +333,7 @@ const HomeCorporate = () => {
                     <p className="home-cta-sub">
                         Sin compromiso. Primera consulta gratuita.
                     </p>
-                    <a href="/contacto" className="home-cta-btn">
+                    <a href="/contact" className="home-cta-btn">
                         CONSULTAR AHORA <span>→</span>
                     </a>
                 </motion.div>

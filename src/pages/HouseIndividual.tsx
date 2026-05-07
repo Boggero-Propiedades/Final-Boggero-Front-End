@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion"
 import axios from "axios"
 import { UseTheme } from "../contexts/ThemeContext"
 import "./houseIndividual.css"
-/* import foto1 from "../assets/foto-boggero-1.jpg" */
  
 interface House {
     _id: string

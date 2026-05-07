@@ -14,6 +14,8 @@ import AdminDashboard from "../pages/AdminDashboard";
 import MethodCorporate from "../pages/MethodCorporate";
 import HousesView from "../pages/HousesView";
 import HouseIndividual from "../pages/HouseIndividual";
+import Error404 from "../processMessages/Error404";
+import ProcessOk from "../processMessages/ProcessOk";
 
 const AppRouter = () => {
     return (
@@ -29,8 +31,10 @@ const AppRouter = () => {
                     <Route path="/contact" element={<ContactCorporate />} />
                     <Route path="/method" element={<MethodCorporate />} />
                     <Route path="/policy" element={<PoliticaCookiesCorporate />} />
-                    <Route path="/*" element={<Error errorMessage="" />} />
+                    <Route path="/*" element={<Error404 />} />
                     <Route path="/loader" element={<SpinnerCorporate />} />
+                    <Route path="/error" element={<Error errorMessage="Error 404: Página no encontrada" />} />
+                    <Route path="/ok" element={<ProcessOk processMessage="Proceso completado con éxito" />} />
                     {/* <Route path="/dashboard" element={<PrivateRoute adminOnly={false}><Dashboard /></PrivateRoute>} /> */}
                     {/* Tiene Acceso solo el admin con la prop pasada */}
                     <Route path="/admin" element={<PrivateRoute adminOnly={true}><AdminDashboard /></PrivateRoute>} />

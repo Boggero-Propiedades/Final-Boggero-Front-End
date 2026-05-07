@@ -1,5 +1,5 @@
 /* ============================================================
-   error.css — Boggero Propiedades
+   error404.css — Boggero Propiedades
    ============================================================ */
 
 .error-container {
@@ -16,19 +16,19 @@
 .error-container.light { background: #fdf8f8; color: #141820; }
 
 /* ── CARD ───────────────────────────────────────────────── */
-.error-content {
+.error-content--404 {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 4rem 5rem;
-    max-width: 560px;
+    max-width: 480px;
     width: 90%;
     border: 1px solid rgba(201, 99, 122, 0.18);
     position: relative;
 }
 
-.error-content::before {
+.error-content--404::before {
     content: "";
     position: absolute;
     top: -1px;
@@ -38,7 +38,7 @@
     background: #c9637a;
 }
 
-.error-content::after {
+.error-content--404::after {
     content: "AVISO";
     position: absolute;
     top: -11px;
@@ -52,6 +52,7 @@
     padding: 3px 10px;
 }
 
+/* ── EYEBROW ────────────────────────────────────────────── */
 .error-eyebrow {
     display: block;
     font-size: 9px;
@@ -62,9 +63,23 @@
     margin-bottom: 1.5rem;
 }
 
+/* ── 404 ────────────────────────────────────────────────── */
+.error-404-code {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(5rem, 15vw, 9rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -4px;
+    color: transparent;
+    -webkit-text-stroke: 2px #c9637a;
+    margin: 0 0 1.5rem;
+    opacity: 0.35;
+}
+
+/* ── TÍTULO ─────────────────────────────────────────────── */
 .error-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(1rem, 3vw, 1.35rem);
+    font-size: clamp(1rem, 3vw, 1.2rem);
     font-weight: 800;
     line-height: 1.45;
     letter-spacing: -0.3px;
@@ -72,6 +87,7 @@
     margin: 0 0 2rem;
 }
 
+/* ── DIVIDER ────────────────────────────────────────────── */
 .error-divider {
     width: 36px;
     height: 2px;
@@ -79,6 +95,7 @@
     margin-bottom: 1.5rem;
 }
 
+/* ── TEXTO ──────────────────────────────────────────────── */
 .error-text.small {
     font-family: 'Montserrat', sans-serif;
     font-size: 10px;
@@ -89,6 +106,7 @@
     margin: 0 0 1.5rem;
 }
 
+/* ── BARRA DE PROGRESO ──────────────────────────────────── */
 .error-progress-wrap {
     width: 100%;
     height: 2px;
@@ -107,11 +125,12 @@
     to   { width: 0%; }
 }
 
+/* ── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 768px) {
-    .error-content { padding: 3rem 2rem; }
+    .error-content--404 { padding: 3rem 2rem; }
 }
 
 @media (max-width: 480px) {
-    .error-content { padding: 2.5rem 1.5rem; }
-    .error-content::after { left: 1rem; }
+    .error-content--404 { padding: 2.5rem 1.5rem; }
+    .error-content--404::after { left: 1rem; }
 }
