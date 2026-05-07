@@ -71,7 +71,7 @@ const HomeCorporate = () => {
                 <div className="home-hero-video-wrap">
                     {/* DESCOMENTA CUANDO TENGAS EL VIDEO */}
                     <video autoPlay muted loop playsInline className="home-hero-video">
-                        <source src={heroVideo} type="video/mp4" />
+                        <source src="https://res.cloudinary.com/dhqzn8gwi/video/upload/v1778182145/xjlcxxnr6blzexbivtfq.mp4" type="video/mp4" />
                     </video>
                     <div className="home-hero-video-placeholder" />
                     <div className="home-hero-overlay" />

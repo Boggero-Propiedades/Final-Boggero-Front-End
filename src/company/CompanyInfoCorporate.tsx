@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import "./companyInfoCorporate.css"
 import { UseTheme } from '../contexts/ThemeContext';
 import betina from "../assets/betina-2.jpg";
-import videoBoggero from "../assets/video-boggero-nosotros.mp4";
+/* import videoBoggero from "../assets/video-boggero-nosotros.mp4"; */
 
 const CompanyInfoCorporate: React.FC = () => {
     const { theme } = UseTheme();
@@ -44,7 +44,7 @@ const CompanyInfoCorporate: React.FC = () => {
                 <div className="bg-video-wrapper">
                     {/* DESCOMENTA CUANDO TENGAS EL VIDEO */}
                     <video autoPlay muted loop playsInline className="bg-hero-video">
-                        <source src={videoBoggero} type="video/mp4" />
+                        <source src="https://res.cloudinary.com/dhqzn8gwi/video/upload/v1778182136/tflb4sfvlddxrdcak93n.mp4" type="video/mp4" />
                     </video>
  
                     {/* PLACEHOLDER mientras no hay video */}
