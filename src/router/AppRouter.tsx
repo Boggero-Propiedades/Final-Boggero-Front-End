@@ -11,7 +11,6 @@ import CookiesCorporate from "../cookies/CookiesCorporate.tsx/CookiesCorporate";
 import Error from "../processMessages/Error";
 import PrivateRoute from "./PrivateRoute";
 import AdminDashboard from "../pages/AdminDashboard";
-/* import Dashboard from "../pages/Dashboard"; */
 import MethodCorporate from "../pages/MethodCorporate";
 import HousesView from "../pages/HousesView";
 import HouseIndividual from "../pages/HouseIndividual";

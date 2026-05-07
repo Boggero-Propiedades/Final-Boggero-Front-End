@@ -3,7 +3,6 @@ import { auth } from "../firebase/firebase.ts"
 import { sendPasswordResetEmail } from "firebase/auth";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { UseLanguage } from "./LanguageContext.tsx";
 
 const SessionContext = createContext<SessionContextType | null>(null);
 
@@ -31,7 +30,6 @@ interface SessionContextType {
 export const SessionProvider = ({ children }: ProviderProps) => {
     const navigate = useNavigate()
     const timeRef = useRef<any>(null);
-    const { texts, language } = UseLanguage()
 
     const [ error, setError ] = useState<string | boolean | null | number>(false)
     const [ loading, setLoading ] = useState<string | boolean | null | number>(false)
@@ -119,26 +117,26 @@ export const SessionProvider = ({ children }: ProviderProps) => {
                 const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/login-failed`, { email });
                 
                 if (data.banned) {
-                    setError(texts[language].sessionErrors.loginTooManyAttempts);
+                    setError("Tu cuenta fue bloqueada por demasiados intentos fallidos.");
                 } else if (data.attempts < 5) {
-                    setError(`${texts[language].sessionErrors.loginAttemptsLeft} ${5 - data.attempts} ${texts[language].sessionErrors.loginAttemptsLeftAfter}`);
+                    setError(`Credenciales inválidas. Te quedan ${5 - data.attempts} intento(s).`);
                 } else {
-                    setError(texts[language].sessionErrors.loginInvalidCredentials);
+                    setError("Credenciales inválidas.");
                 }
             } catch (error) {
-                setError(texts[language].sessionErrors.loginInvalidCredentials);
+                setError("Credenciales inválidas.");
                 console.error("Login error:", error);
             }
             return;
         }
 
         if (serverCode === "auth/user-banned") {
-            setError(texts[language].sessionErrors.loginBanned);
+            setError("Usuario baneado. Contactate con Boggero Propiedades.");
             return;
         }
 
         console.error("Login error:", error);
-        setError(texts[language].sessionErrors.loginGeneralError);
+        setError("Error al iniciar sesión. Intentá más tarde.");
     } finally {
         setLoading(false);
     }
@@ -158,7 +156,7 @@ export const SessionProvider = ({ children }: ProviderProps) => {
                 navigate("/");
             }
         } catch (error: any) {
-            setError(texts[language].sessionErrors.logoutError); // Error al cerrar
+            setError("Error al cerrar sesión."); // Error al cerrar
             console.error("Error logging out session 🔴", error);
         } finally {
             setLoading(false)
@@ -169,11 +167,11 @@ export const SessionProvider = ({ children }: ProviderProps) => {
     const handleResetPassword = async (email: string) => {
         try {
             if(!email){
-                alert(texts[language].sessionErrors.resetEmailRequired); // Ingresá mail
+                alert("Por favor, ingresa tu email para restablecer la contraseña."); // Ingresá mail
                 return;
             } else {
                 await sendPasswordResetEmail(auth, email);
-                alert(texts[language].sessionErrors.resetEmailSent); // Mail enviado
+                alert("Email de restablecimiento enviado."); // Mail enviado
             }
             
         } catch (error: any) {
@@ -181,13 +179,13 @@ export const SessionProvider = ({ children }: ProviderProps) => {
 
             switch (error.code) {
                 case "auth/user-not-found":
-                    alert(texts[language].sessionErrors.resetUserNotFound); // No Existe usuario
+                    alert("No existe cuenta vinculada a este correo."); // No Existe usuario
                     break;
                 case "auth/invalid-email":
-                    alert(texts[language].sessionErrors.resetInvalidEmail); // Formato mail invalido
+                    alert("Formato de email inválido."); // Formato mail invalido
                     break;
                 case "auth/too-many-requests":
-                    alert(texts[language].sessionErrors.resetTooManyRequests); // Demasiados Intentos
+                    alert("Demasiados intentos. Intentá más tarde."); // Demasiados Intentos
                     break;
                 default:
                     alert("Default Error.");

@@ -77,7 +77,7 @@ const HouseIndividual = () => {
     // Whatsapp — reemplazá con el número real
     const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP
     const whatsappMsg = house
-        ? encodeURIComponent(`Hola Betina, me interesa la propiedad: *${house.title}* (${house.direction}). ¿Podemos hablar?`)
+        ? encodeURIComponent(`Hola Elizabeth, me interesa la propiedad: *${house.title}* (${house.direction}). ¿Podemos hablar?`)
         : ""
     const whatsappUrl = `${WHATSAPP_NUMBER}?text=${whatsappMsg}`
  
@@ -311,7 +311,7 @@ const HouseIndividual = () => {
                         </a>
  
                         <p className="hi-sidebar-note">
-                            Betina Boggero · Mat. 1049<br />
+                            Elizabeth Boggero · Mat. 1049<br />
                             Martillera y Corredora Pública
                         </p>
                     </motion.div>

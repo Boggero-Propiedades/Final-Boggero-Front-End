@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const LiveTypingText = ({ text, className }: { text: string; className?: string }) => {
+const LiveTypingText = ({ text, className }: { text: any; className?: string }) => {
   const [displayed, setDisplayed] = useState("");
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const LiveTypingText = ({ text, className }: { text: string; className?: string 
       setDisplayed(text.slice(0, i));
       i++;
       if (i > text.length) clearInterval(interval);
-    }, 10);
+    }, 5);
     return () => clearInterval(interval);
   }, [text]);
 

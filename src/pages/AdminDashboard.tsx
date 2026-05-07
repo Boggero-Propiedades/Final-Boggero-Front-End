@@ -52,7 +52,7 @@ const AdminDashboard = () => {
     const [loadingList, setLoadingList] = useState(false)
  
     const [showCreate, setShowCreate]       = useState(false)
-    const [formData, setFormData]           = useState<FormData>(EMPTY_FORM)
+    const [formData, setFormData]           = useState<FormData | any>(EMPTY_FORM)
     const [coverIndex, setCoverIndex]       = useState(0)
     const [loadingCreate, setLoadingCreate] = useState(false)
     const [errorCreate, setErrorCreate]     = useState<string | null>(null)
@@ -108,17 +108,17 @@ const AdminDashboard = () => {
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
     ) => {
         const { name, value } = e.target
-        setFormData(prev => ({ ...prev, [name]: value }))
+        setFormData((prev : any) => ({ ...prev, [name]: value }))
     }
  
     const addImages = (files: FileList | File[]) => {
         const arr = Array.from(files)
         if (formData.imageUrl.length + arr.length > 25) { alert("Máximo 25 imágenes"); return }
-        setFormData(prev => ({ ...prev, imageUrl: [...prev.imageUrl, ...arr] }))
+        setFormData((prev : any) => ({ ...prev, imageUrl: [...prev.imageUrl, ...arr] }))
     }
  
     const removeCreateImage = (index: number) => {
-        setFormData(prev => ({ ...prev, imageUrl: prev.imageUrl.filter((_, i) => i !== index) }))
+        setFormData((prev : any) => ({ ...prev, imageUrl: prev.imageUrl.filter((_: any, i: any) => i !== index) }))
         if (coverIndex >= index && coverIndex > 0) setCoverIndex(c => c - 1)
     }
  
@@ -126,7 +126,7 @@ const AdminDashboard = () => {
         const imgs = [...formData.imageUrl]
         const [moved] = imgs.splice(from, 1)
         imgs.splice(to, 0, moved)
-        setFormData(prev => ({ ...prev, imageUrl: imgs }))
+        setFormData((prev : any) => ({ ...prev, imageUrl: imgs }))
         if (coverIndex === from) setCoverIndex(to)
     }
  
@@ -135,7 +135,7 @@ const AdminDashboard = () => {
         setLoadingCreate(true)
         setErrorCreate(null)
         try {
-            const files = formData.imageUrl.filter(f => f instanceof File) as File[]
+            const files = formData.imageUrl.filter((f: any) => f instanceof File) as File[]
             const ordered = [...files]
             if (coverIndex !== 0 && coverIndex < ordered.length) {
                 const [cover] = ordered.splice(coverIndex, 1)
@@ -356,7 +356,7 @@ const AdminDashboard = () => {
  
                                 {formData.imageUrl.length > 0 && (
                                     <div className="adm-img-preview-grid">
-                                        {formData.imageUrl.map((img, i) => (
+                                        {formData.imageUrl.map((img: any, i: any) => (
                                             <div key={i} className={`adm-img-thumb ${coverIndex === i ? "is-cover" : ""}`}>
                                                 <img src={previewUrl(img)} alt={`img-${i}`} />
                                                 <div className="adm-img-thumb-actions">

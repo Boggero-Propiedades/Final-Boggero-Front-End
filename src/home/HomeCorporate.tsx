@@ -32,7 +32,7 @@ const HomeCorporate = () => {
  
     const testimonials = [
         {
-            quote: "Betina nos guió en la compra de nuestro primer departamento con una claridad y paciencia increíbles. Sentimos que teníamos una aliada, no solo una intermediaria.",
+            quote: "Elizabeth nos guió en la compra de nuestro primer departamento con una claridad y paciencia increíbles. Sentimos que teníamos una aliada, no solo una intermediaria.",
             author: "Martina R.", role: "Compradora · 2023"
         },
         {
@@ -46,7 +46,7 @@ const HomeCorporate = () => {
     ]
  
     /* ── ANIMACIONES ──────────────────────────────────────── */
-    const fadeUp = {
+    const fadeUp: any = {
         hidden: { opacity: 0, y: 60 },
         visible: (i: number) => ({
             opacity: 1, y: 0,
@@ -155,7 +155,7 @@ const HomeCorporate = () => {
                     {[...Array(2)].map((_, rep) => (
                         <span key={rep} className="home-marquee-content">
                             COMPRA &nbsp;·&nbsp; VENTA &nbsp;·&nbsp; ALQUILER &nbsp;·&nbsp;
-                            TASACIÓN &nbsp;·&nbsp; BETINA BOGGERO &nbsp;·&nbsp; MAT. 1049 &nbsp;·&nbsp;
+                            TASACIÓN &nbsp;·&nbsp; Elizabeth BOGGERO &nbsp;·&nbsp; MAT. 1049 &nbsp;·&nbsp;
                             +10 AÑOS &nbsp;·&nbsp; CONFIANZA &nbsp;·&nbsp;
                         </span>
                     ))}

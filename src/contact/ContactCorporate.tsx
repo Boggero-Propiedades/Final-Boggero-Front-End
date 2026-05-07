@@ -90,7 +90,7 @@ const ContactCorporate = () => {
  
                     <p className="contact-subtitle">
                         Más de 10 años asesorando en compra, venta y alquiler de propiedades.
-                        Completá el formulario y Betina te responderá a la brevedad con
+                        Completá el formulario y Elizabeth te responderá a la brevedad con
                         atención personalizada.
                     </p>
  

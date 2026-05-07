@@ -15,7 +15,7 @@ const Footer = () => {
                     <p className="footer-description">
                         Asesoramiento inmobiliario profesional, claro y personalizado.
                         Compra, venta y alquiler de propiedades con el respaldo de
-                        Betina Boggero, Martillera y Corredora Pública Mat. 1049.
+                        Elizabeth Boggero, Martillera y Corredora Pública Mat. 1049.
                     </p>
                 </div>
  
@@ -77,7 +77,7 @@ const Footer = () => {
  
             <div className="footer-bottom">
                 <span>
-                    © {new Date().getFullYear()} Boggero Propiedades · Betina Boggero Mat. 1049
+                    © {new Date().getFullYear()} Boggero Propiedades · Elizabeth Boggero Mat. 1049
                     {" · "}Desarrollado por{" "}
                     <a
                         href="https://www.deepdev.com.ar"

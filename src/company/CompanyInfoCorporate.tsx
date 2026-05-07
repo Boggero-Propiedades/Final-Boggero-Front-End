@@ -134,10 +134,10 @@ const CompanyInfoCorporate: React.FC = () => {
                     >
                         <div className="bg-image-frame">
                             <div className="bg-image-accent" />
-                            <img src={betina} alt="Betina Boggero" className="bg-profile-photo" />
+                            <img src={betina} alt="Elizabeth Boggero" className="bg-profile-photo" />
                         </div>
                         <div className="bg-profile-caption">
-                            <h3>Betina Boggero</h3>
+                            <h3>Elizabeth Boggero</h3>
                             <span>Martillera y Corredora Pública · Mat. 1049</span>
                         </div>
                     </motion.div>
@@ -155,7 +155,7 @@ const CompanyInfoCorporate: React.FC = () => {
                             claro y responsable en operaciones de compra, venta y alquiler de propiedades.
                         </p>
                         <p className="bg-profile-body">
-                            Betina es la titular y responsable del estudio, con sólida experiencia en el
+                            Elizabeth es la titular y responsable del estudio, con sólida experiencia en el
                             mercado inmobiliario. Su forma de trabajo se caracteriza por la atención
                             personalizada, la claridad en cada etapa del proceso y el cumplimiento estricto
                             de las normas que regulan la actividad.
