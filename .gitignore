@@ -24,6 +24,6 @@ dist-ssr
 *.sw?
 
 # VIDEOS MP$
-src/assets/*.mmp4
+src/assets/*.mp4
 
 .env
