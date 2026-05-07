@@ -7,6 +7,7 @@ const CookieBanner: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    /* localStorage.clear() */
     const consent = localStorage.getItem('cookie-consent');
     if (!consent) {
       const timer = setTimeout(() => setIsVisible(true), 1000);
@@ -32,7 +33,7 @@ const CookieBanner: React.FC = () => {
         <div className="cookie-body">
           <p>
             Utilizamos tecnologías de seguimiento para optimizar su experiencia técnica en nuestra plataforma. 
-            Al continuar, acepta nuestra <a href="/privacy">Privacy Policy</a>.
+            Al continuar, acepta nuestra <a href="/policy-cookies">Política de Privacidad</a>.
           </p>
           <button onClick={acceptCookies} className="cookie-btn">
             <span className="btn-text">ACEPTAR</span>

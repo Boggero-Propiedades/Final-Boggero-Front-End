@@ -30,12 +30,11 @@ const AppRouter = () => {
                     <Route path="/company" element={<CompanyInfoCorporate />} />
                     <Route path="/contact" element={<ContactCorporate />} />
                     <Route path="/method" element={<MethodCorporate />} />
-                    <Route path="/policy" element={<PoliticaCookiesCorporate />} />
+                    <Route path="/policy-cookies" element={<PoliticaCookiesCorporate />} />
                     <Route path="/*" element={<Error404 />} />
                     <Route path="/loader" element={<SpinnerCorporate />} />
                     <Route path="/error" element={<Error errorMessage="Error 404: Página no encontrada" />} />
                     <Route path="/ok" element={<ProcessOk processMessage="Proceso completado con éxito" />} />
-                    {/* <Route path="/dashboard" element={<PrivateRoute adminOnly={false}><Dashboard /></PrivateRoute>} /> */}
                     {/* Tiene Acceso solo el admin con la prop pasada */}
                     <Route path="/admin" element={<PrivateRoute adminOnly={true}><AdminDashboard /></PrivateRoute>} />
                     {/* <Route path="/admin" element={<AdminDashboard />} /> */}
