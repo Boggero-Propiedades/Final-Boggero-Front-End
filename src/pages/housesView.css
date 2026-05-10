@@ -385,9 +385,7 @@
  
 /* Footer de la card */
 .hv-card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-self: self-end;
     padding-top: 1rem;
     border-top: 1px solid var(--border);
     margin-top: auto;
@@ -487,6 +485,317 @@
     opacity: 0.4;
     margin-left: 1rem;
 }
+
+/* ============================================================
+   AGREGAR AL FINAL DE housesView.css
+   ============================================================ */
+
+/* ── BOTÓN TOGGLE FILTROS ───────────────────────────────── */
+.hv-filter-toggle {
+    position: relative;
+    align-self: flex-end;
+    padding: 0.7rem 1.8rem;
+    background: transparent;
+    border: 1px solid var(--border-neu);
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.hv-filter-toggle:hover,
+.hv-filter-toggle.is-open  { border-color: var(--rose); color: var(--rose); }
+.hv-filter-toggle.has-active { border-color: var(--rose); background: var(--rose-dim); color: var(--rose); }
+
+.hv-filter-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--rose);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── PANEL FILTROS ──────────────────────────────────────── */
+.hv-filters-panel {
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.hv-filters-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 3rem;
+    padding: 2.5rem 5%;
+}
+
+.hv-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.hv-filter-label {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose);
+}
+
+/* Chips de filtro */
+.hv-filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.hv-chip {
+    padding: 0.45rem 1rem;
+    background: transparent;
+    border: 1px solid var(--border-neu);
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.65;
+}
+
+.hv-chip:hover    { border-color: var(--rose); color: var(--rose); opacity: 1; }
+.hv-chip.is-active { background: var(--rose); border-color: var(--rose); color: #fff; opacity: 1; }
+.hv-chip--sm      { padding: 0.4rem 0.8rem; }
+
+/* Input de filtro */
+.hv-filter-input {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--border-neu);
+    border-radius: 2px;
+    background: transparent;
+    color: inherit;
+    outline: none;
+    transition: border-color 0.25s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hv-filter-input:focus { border-color: var(--rose); background: var(--rose-dim); }
+.hv-filter-input::placeholder { opacity: 0.4; }
+
+/* Rango de precio / superficie */
+.hv-filter-range {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hv-filter-range .hv-filter-input { flex: 1; }
+
+.hv-range-sep {
+    font-size: 0.9rem;
+    opacity: 0.4;
+    flex-shrink: 0;
+}
+
+/* Footer de filtros */
+.hv-filters-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    border-top: 1px solid var(--border-neu);
+    background: var(--rose-dim);
+}
+
+.hv-filters-result {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+.hv-clear-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    color: var(--rose);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.hv-clear-btn:hover { opacity: 0.7; }
+
+/* ── AMENITIES EN CARD ──────────────────────────────────── */
+.hv-card-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 0.8rem;
+}
+
+.hv-amenity-chip {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
+.hv-amenity-more {
+    border-color: var(--rose);
+    color: var(--rose);
+    opacity: 1;
+}
+
+/* ── RESPONSIVE FILTROS 1024px ──────────────────────────── */
+@media (max-width: 1024px) {
+    .hv-filters-inner { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── RESPONSIVE FILTROS 768px ───────────────────────────── */
+@media (max-width: 768px) {
+    .hv-filters-inner { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 5%; }
+    .hv-filter-toggle { align-self: flex-start; }
+}
+
+
+/* ============================================================
+   AGREGAR AL FINAL DE adminDashboard.css
+   ============================================================ */
+
+/* ── SPAN 2 columnas en el grid del form ────────────────── */
+.adm-span-2 { grid-column: 1 / -1; }
+
+/* ── AMENITIES INPUT ────────────────────────────────────── */
+.ami-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    grid-column: 1 / -1;
+}
+
+/* Seleccionadas */
+.ami-selected { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.ami-selected-label {
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9637a;
+}
+
+.ami-chips-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.ami-chip {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid rgba(128,128,128,0.2);
+    border-radius: 2px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    opacity: 0.65;
+}
+
+.ami-chip:hover { border-color: #c9637a; color: #c9637a; opacity: 1; }
+
+.ami-chip--active {
+    background: rgba(201, 99, 122, 0.12);
+    border-color: #c9637a;
+    color: #c9637a;
+    opacity: 1;
+}
+
+.ami-chip-remove {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 10px;
+    padding: 0;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.ami-chip-remove:hover { opacity: 1; }
+
+/* Input custom */
+.ami-input-row {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.ami-input { flex: 1; }
+
+.ami-add-btn {
+    padding: 0.7rem 1.2rem;
+    background: #c9637a;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.25s;
+}
+
+.ami-add-btn:hover { background: #b5536a; }
+
+/* Sugerencias */
+.ami-historial { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.ami-historial-label {
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.45;
+}
+
+.ami-chips-row--suggestions { max-height: 120px; overflow-y: auto; }
 
 @media (max-width: 480px) {
     .hv-page-info { display: none; }

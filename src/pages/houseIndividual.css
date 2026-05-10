@@ -552,6 +552,82 @@ h1.hi-title {
     letter-spacing: 2px;
     color: rgba(255,255,255,0.5);
 }
+
+/* AMENITIES */
+/* ══════════════════════════════════════════════════════════
+   AMENITIES
+══════════════════════════════════════════════════════════ */
+.hi-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hi-amenity {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    cursor: default;
+    transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+
+.hi-amenity:hover {
+    border-color: var(--rose);
+    color: var(--rose);
+    background: var(--rose-dim);
+}
+
+/* ── SIDEBAR AMENITIES ───────────────────────────────────── */
+.hi-sidebar-amenities {
+    padding: 1.2rem 1.8rem;
+    border-top: 1px solid var(--border);
+}
+
+.hi-sidebar-ami-label {
+    display: block;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.8rem;
+}
+
+.hi-sidebar-ami-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.hi-sidebar-ami-chip {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    opacity: 0.7;
+    transition: border-color 0.25s, opacity 0.25s;
+    cursor: default;
+}
+
+.hi-sidebar-ami-chip:hover {
+    border-color: var(--rose);
+    opacity: 1;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .hi-amenity { font-size: 9px; padding: 5px 10px; }
+}
  
 /* ══════════════════════════════════════════════════════════
    RESPONSIVE — 1024px

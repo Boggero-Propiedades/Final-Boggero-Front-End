@@ -552,6 +552,47 @@
  
 .adm-del-confirm-btn:hover:not(:disabled) { background: #c03e3e; }
 .adm-del-confirm-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── AMENITIES EN LA LISTA ── */
+.adm-row-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.4rem;
+}
+
+.adm-row-amenity {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border: 1px solid rgba(201, 99, 122, 0.25);
+    border-radius: 2px;
+    color: #c9637a;
+}
+
+.adm-row-amenity--more {
+    border-color: #c9637a;
+    background: rgba(201, 99, 122, 0.08);
+}
+
+/* ── AMENITIES INPUT ── */
+.ami-wrapper { display: flex; flex-direction: column; gap: 1rem; }
+.ami-label { font-size: 12px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; color: #c9637a; display: block; margin-bottom: 0.4rem; }
+.ami-selected { display: flex; flex-direction: column; gap: 0.5rem; }
+.ami-chips-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.ami-chip { font-family: 'Montserrat', sans-serif; font-size: 12px !important; font-weight: 700; letter-spacing: 1px; padding: 0.4rem 0.9rem; border: 1px solid rgba(128,128,128,0.2); border-radius: 2px; background: transparent; color: inherit; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; opacity: 0.65; }
+.ami-chip:hover { border-color: #c9637a; color: #c9637a; opacity: 1; }
+.ami-chip--active { background: rgba(201,99,122,0.12); border-color: #c9637a; color: #c9637a; opacity: 1; }
+.ami-chip-remove { background: none; border: none; color: inherit; cursor: pointer; font-size: 10px; padding: 0; opacity: 0.7; }
+.ami-chip-remove:hover { opacity: 1; }
+.ami-input-row { display: flex; gap: 0.6rem; }
+.ami-add-btn { padding: 0.7rem 1.2rem; background: #c9637a; color: #fff; border: none; border-radius: 2px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background 0.25s; }
+.ami-add-btn:hover { background: #b5536a; }
+.ami-historial { display: flex; flex-direction: column; gap: 0.5rem; }
+.ami-chips-suggestions { height: auto; overflow-y: auto; }
+.adm-span-2 { grid-column: 1 / -1; }
  
 /* ══════════════════════════════════════════════════════════
    RESPONSIVE — 1024px

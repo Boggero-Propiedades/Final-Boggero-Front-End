@@ -25,6 +25,7 @@ interface House {
     imageUrl: string[]
     maps: string
     createdAt: string
+    amenities?: string[] | string
 }
  
 const operationColor: Record<string, string> = {
@@ -184,7 +185,7 @@ const HouseIndividual = () => {
                         transition={{ duration: 0.7, delay: 0.1 }}
                     >
                         <div className="hi-price-row">
-                            <span className="hi-price">{house.price}</span>
+                            <span className="hi-price">{house.operation === "Venta" ? "U$S " : "$ "}{Number(house.price.replace(/[^0-9]/g, "")).toLocaleString("es-AR")}</span>
                             <span className="hi-condition">{house.condition}</span>
                         </div>
  
@@ -197,6 +198,28 @@ const HouseIndividual = () => {
  
                     <div className="hi-divider" />
  
+                    {/* Amenities */}
+                    {house.amenities && house.amenities.length > 0 && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.25 }}
+                        >
+                            <h2 className="hi-section-label">AMENITIES</h2>
+                            <div className="hi-amenities">
+                                {Array.isArray(house.amenities) ? (
+                                    house.amenities.map((a: string | string[], i: number | string) => (
+                                        <span key={i} className="hi-amenity">{a}</span>
+                                    ))
+                                ) : (
+                                    <span className="hi-amenity">{house.amenities}</span>
+                                )}
+                            </div>
+                        </motion.div>
+                    )}
+
+                    <div className="hi-divider" />
+
                     {/* Stats grid */}
                     <motion.div
                         className="hi-stats"
@@ -263,7 +286,7 @@ const HouseIndividual = () => {
                         {/* Precio */}
                         <div className="hi-sidebar-price">
                             <span className="hi-sidebar-price-label">PRECIO</span>
-                            <span className="hi-sidebar-price-val">{house.price}</span>
+                            <span className="hi-sidebar-price-val">{house.operation === "Venta" ? "U$S " : "$ "}{Number(house.price.replace(/[^0-9]/g, "")).toLocaleString("es-AR")}</span>
                         </div>
  
                         {/* Info rápida */}
