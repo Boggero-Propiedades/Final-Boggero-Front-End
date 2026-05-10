@@ -569,7 +569,9 @@
  
     .adm-img-preview-grid { grid-template-columns: repeat(3, 1fr); }
  
-    .adm-row { grid-template-columns: 70px 1fr auto; gap: 1rem; }
+    .adm-row { 
+    display: flex;
+    justify-content: space-between; gap: 1rem; }
  
     .adm-row-title { max-width: 200px; font-size: 0.82rem; }
  

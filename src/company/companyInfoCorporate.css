@@ -99,7 +99,7 @@
 
 h1.bg-hero-title {
     font-family: "Montserrat", 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 9vw, 6rem);
+    font-size: clamp(3rem, 9vw, 5rem);
     font-weight: 700;
     line-height: 0.9;
     letter-spacing: -2px;

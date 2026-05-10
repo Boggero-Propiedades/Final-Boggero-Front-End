@@ -309,10 +309,6 @@ const HouseIndividual = () => {
                             FORMULARIO DE CONTACTO →
                         </a>
  
-                        <p className="hi-sidebar-note">
-                            Elizabeth Boggero · Mat. 1049<br />
-                            Martillera y Corredora Pública
-                        </p>
                     </motion.div>
                 </aside>
             </div>

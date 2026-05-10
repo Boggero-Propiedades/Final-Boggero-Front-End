@@ -514,7 +514,7 @@
  
     .hv-title { letter-spacing: -1px; }
  
-    .hv-grid { grid-template-columns: 1fr; gap: 80px; }
+    .hv-grid { padding: 30px 10px; grid-template-columns: 1fr; gap: 80px; }
  
     .hv-card-img-wrap { height: 300px; }
  
