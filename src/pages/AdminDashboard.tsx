@@ -31,7 +31,7 @@ interface House {
 }
 
 type FormData = Omit<House, "_id" | "createdAt"> & {
-    imageUrl: (File | string)[]
+    imageUrl: (File | string)[] | any
 }
 
 const EMPTY_FORM: FormData = {
@@ -308,11 +308,11 @@ const AdminDashboard = () => {
     const addImages = (files: FileList | File[]) => {
         const arr = Array.from(files)
         if (formData.imageUrl.length + arr.length > 25) { alert("Máximo 25 imágenes"); return }
-        setFormData(prev => ({ ...prev, imageUrl: [...prev.imageUrl, ...arr] }))
+        setFormData((prev: any) => ({ ...prev, imageUrl: [...prev.imageUrl, ...arr] }))
     }
 
     const removeCreateImage = (index: number) => {
-        setFormData(prev => ({ ...prev, imageUrl: prev.imageUrl.filter((_, i) => i !== index) }))
+        setFormData(prev => ({ ...prev, imageUrl: prev.imageUrl.filter((_: any, i: any) => i !== index) }))
         if (coverIndex >= index && coverIndex > 0) setCoverIndex(c => c - 1)
     }
 
@@ -329,7 +329,7 @@ const AdminDashboard = () => {
         setLoadingCreate(true)
         setErrorCreate(null)
         try {
-            const files = formData.imageUrl.filter(f => f instanceof File) as File[]
+            const files = formData.imageUrl.filter((f: any) => f instanceof File) as File[]
             const ordered = [...files]
             if (coverIndex !== 0 && coverIndex < ordered.length) {
                 const [cover] = ordered.splice(coverIndex, 1)
@@ -527,7 +527,7 @@ const AdminDashboard = () => {
 
                                 {formData.imageUrl.length > 0 && (
                                     <div className="adm-img-preview-grid">
-                                        {formData.imageUrl.map((img, i) => (
+                                        {formData.imageUrl.map((img: string | File, i: number) => (
                                             <div key={i} className={`adm-img-thumb ${coverIndex === i ? "is-cover" : ""}`}>
                                                 <img src={previewUrl(img)} alt={`img-${i}`} />
                                                 <div className="adm-img-thumb-actions">
