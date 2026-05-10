@@ -584,7 +584,7 @@
 /* Input de filtro */
 .hv-filter-input {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.88rem;
+    font-size: 16px;
     font-weight: 500;
     padding: 0.7rem 0.9rem;
     border: 1px solid var(--border-neu);
